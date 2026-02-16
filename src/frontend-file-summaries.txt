@@ -1,0 +1,15 @@
+{
+  "frontend/src/App.tsx": "Main application component that manages gallery state and renders all page sections (nav, hero, prompt generator, gallery, pricing, contact, footer) in a single-page layout.",
+  "frontend/src/components/TopNav.tsx": "Fixed navigation bar with smooth-scroll links to page sections, responsive mobile menu, and crimson hover effects matching the dark cinematic theme.",
+  "frontend/src/components/HeroSection.tsx": "Hero section with background image, large AI monogram, main heading with text glow effect, and animated scroll indicator.",
+  "frontend/src/components/PromptGenerator.tsx": "Prompt input section with text field, validation, and mock generate button that simulates AI generation with loading state and adds new items to gallery.",
+  "frontend/src/components/useMockGeneration.ts": "Custom hook that simulates image generation with random delay (0.5-1.5s) and returns a new gallery item using existing static assets.",
+  "frontend/src/components/GallerySection.tsx": "Gallery grid section displaying image cards with hover effects, style filter dropdown, and responsive layout with consistent aspect ratios.",
+  "frontend/src/components/PricingSection.tsx": "Pricing section with three plan cards (Starter, Professional, Enterprise) featuring feature lists, highlighted popular plan, and consistent crimson accent styling.",
+  "frontend/src/components/ContactSection.tsx": "Contact form with name, email, and message fields, client-side validation, and local success message display without backend integration.",
+  "frontend/src/components/Footer.tsx": "Footer component with copyright notice and attribution link to caffeine.ai with UTM tracking parameters.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder file for future React Query hooks that will interact with backend methods.",
+  "frontend/src/index.css": "Global styles with dark cinematic OKLCH color system, crimson accent tokens, text glow utilities, and custom shadow effects for the AI generator theme.",
+  "frontend/tailwind.config.js": "Tailwind configuration extended with Playfair Display serif font for headings, Inter sans-serif for body, crimson color tokens, custom border radii, and glow shadow utilities.",
+  "frontend/index.html": "HTML entry point with meta tags, Playfair Display and Inter font imports from Google Fonts, and root div for React mounting."
+}

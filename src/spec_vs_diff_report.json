@@ -1,0 +1,92 @@
+{
+  "kind": "spec_vs_diff_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-16T18:46:48.375Z",
+  "summary": "Most requested landing-page structure is implemented (nav, hero, prompt+mock generate, gallery, pricing, contact) with a dark/crimson theme and mock generation. However, the gallery filter does not actually filter/reorder items, gallery cards are not clearly keyboard-focusable, nav active-state styling is not implemented, and the presence of the required static image assets cannot be confirmed from the diff summary.",
+  "missing_requirements": [
+    {
+      "id": "REQ-2",
+      "requirement": "Active/hover states are styled coherently with the overall theme for navigation links.",
+      "reason": "Hover styling exists, but there is no evidence of an 'active' state (e.g., based on scroll position or selected section) being implemented.",
+      "evidence": [
+        "frontend/src/components/TopNav.tsx"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Dropdown (if included) updates gallery ordering or filtering on the client side without backend calls.",
+      "reason": "A Select dropdown exists and updates local state (`filter`), but the state is never used to filter or reorder the rendered `items` list.",
+      "evidence": [
+        "frontend/src/components/GallerySection.tsx"
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "requirement": "Gallery cards are keyboard-focusable.",
+      "reason": "Cards are rendered as `Card` components with hover effects, but there is no evidence of `tabIndex`, button/link semantics, or keyboard handlers to ensure focusability.",
+      "evidence": [
+        "frontend/src/components/GallerySection.tsx"
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "requirement": "All required generated images exist at frontend/public/assets/generated with the specified filenames.",
+      "reason": "Code references the required filenames, but the diff summary does not show the actual image files being added (an omitted added file is noted, but its path/content is not provided).",
+      "evidence": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/HeroSection.tsx",
+        "frontend/src/components/PromptGenerator.tsx"
+      ]
+    }
+  ],
+  "hallucinated_features": [
+    {
+      "description": "Footer attribution link to caffeine.ai with UTM tracking parameters.",
+      "reason": "Not requested by the BuildRequest requirements or acceptance criteria.",
+      "evidence": [
+        "frontend/src/components/Footer.tsx"
+      ]
+    },
+    {
+      "description": "Internet Identity authentication provider and actor/React Query plumbing (useInternetIdentity, useActor, QueryClientProvider).",
+      "reason": "Not requested for this landing page; BuildRequest explicitly states no custom auth requirements and focuses on a static/mock generator UI.",
+      "evidence": [
+        "frontend/src/main.tsx",
+        "frontend/src/hooks/useInternetIdentity.ts",
+        "frontend/src/hooks/useActor.ts",
+        "frontend/src/hooks/useQueries.ts"
+      ]
+    },
+    {
+      "description": "Pricing plan feature claims like 'API access' and 'Custom model training'.",
+      "reason": "Not requested; Pricing content placeholders were requested, but these imply capabilities beyond the stated non-goal of real AI generation (though still presented as copy).",
+      "evidence": [
+        "frontend/src/components/PricingSection.tsx"
+      ]
+    }
+  ],
+  "confidence": 0.74,
+  "changed_files": [
+    "all_files_summary.json",
+    "backend/main.mo",
+    "frontend-file-summaries.txt",
+    "frontend/index.css",
+    "frontend/index.html",
+    "frontend/src/App.tsx",
+    "frontend/src/components/ContactSection.tsx",
+    "frontend/src/components/Footer.tsx",
+    "frontend/src/components/GallerySection.tsx",
+    "frontend/src/components/HeroSection.tsx",
+    "frontend/src/components/PricingSection.tsx",
+    "frontend/src/components/PromptGenerator.tsx",
+    "frontend/src/components/TopNav.tsx",
+    "frontend/src/components/useMockGeneration.ts",
+    "frontend/src/hooks/useActor.ts",
+    "frontend/src/hooks/useInternetIdentity.ts",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/index.css",
+    "frontend/src/main.tsx",
+    "frontend/tailwind.config.js",
+    "project_state.json"
+  ]
+}

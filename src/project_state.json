@@ -1,0 +1,101 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 3,
+  "summary": "Website to be built based on the user's uploaded design image, aiming to match the layout/styling; will use static placeholder images and a non-functional (mock) \"Generate\" button.",
+  "architectural_notes": [
+    "Implement site as a static front-end with placeholder assets; no external AI image generation integration."
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "imageRequirements": "## Required Images\n- Dark cinematic abstract background with deep charcoal base and subtle crimson glow haze (bg-hero.dim_1600x2400.png)\n- Abstract futuristic panel texture with soft vignette and faint circuit-like patterns (panel-texture.dim_1600x900.png)\n- Six neutral non-person gallery images: moody cinematic AI-themed abstracts/landscapes, each with low-key lighting and warm highlights (gallery-01.dim_900x1200.png)\n- Six neutral non-person gallery images: moody cinematic AI-themed abstracts/landscapes, each with low-key lighting and warm highlights (gallery-02.dim_900x1200.png)\n- Six neutral non-person gallery images: moody cinematic AI-themed abstracts/landscapes, each with low-key lighting and warm highlights (gallery-03.dim_900x1200.png)\n- Six neutral non-person gallery images: moody cinematic AI-themed abstracts/landscapes, each with low-key lighting and warm highlights (gallery-04.dim_900x1200.png)\n- Six neutral non-person gallery images: moody cinematic AI-themed abstracts/landscapes, each with low-key lighting and warm highlights (gallery-05.dim_900x1200.png)\n- Six neutral non-person gallery images: moody cinematic AI-themed abstracts/landscapes, each with low-key lighting and warm highlights (gallery-06.dim_900x1200.png)",
+  "existing_features": [
+    {
+      "id": "feature-create-a-responsive-single-page-website-that-closely-replicates-the-layout-typography-and-visual-styling-of-the-uploaded-design-image-grok-image-xg2a6g3-jpg-including-top-navigation-bar-hero-section-with-large-title-prompt-input-section-with-a-generate-button-and-a-gallery-grid-section",
+      "title": "Create a responsive single-page website that closely replicates the layout, typography, and visual styling of the uploaded design image (grok_image_xg2a6g3.jpg), including: top navigation bar, hero section with large title, prompt input section with a Generate button, and a Gallery grid section.",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-implement-the-top-navigation-ui-from-the-design-with-links-home-gallery-pricing-contact-and-decorative-icons-if-present-and-provide-smooth-scroll-behavior-to-corresponding-page-sections",
+      "title": "Implement the top navigation UI from the design with links: Home, Gallery, Pricing, Contact (and decorative icons if present), and provide smooth-scroll behavior to corresponding page sections.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-prompt-input-section-enter-your-description-here-with-a-text-input-and-a-mock-non-ai-generate-button-when-clicked-show-a-brief-loading-state-and-then-add-a-new-placeholder-image-card-to-the-gallery-using-a-pre-generated-static-asset-no-external-ai-apis",
+      "title": "Build the prompt input section (\"Enter your description here...\") with a text input and a mock/non-AI \"Generate\" button. When clicked, show a brief loading state and then add a new placeholder image card to the gallery using a pre-generated static asset (no external AI APIs).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-create-a-gallery-section-that-visually-matches-the-design-a-section-title-an-optional-style-filter-dropdown-e-g-dramatic-and-a-grid-of-image-cards-with-consistent-aspect-ratio-rounded-corners-and-hover-focus-styling",
+      "title": "Create a Gallery section that visually matches the design: a section title, an optional style/filter dropdown (e.g., \"Dramatic\"), and a grid of image cards with consistent aspect ratio, rounded corners, and hover/focus styling.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-replace-any-photos-of-real-people-from-the-uploaded-design-with-neutral-non-person-placeholder-imagery-e-g-abstract-ai-themed-art-futuristic-textures-landscapes-while-keeping-the-same-layout-composition",
+      "title": "Replace any photos of real people from the uploaded design with neutral, non-person placeholder imagery (e.g., abstract AI-themed art, futuristic textures, landscapes) while keeping the same layout composition.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-establish-and-apply-a-coherent-visual-theme-consistent-with-the-uploaded-design-dark-charcoal-black-surfaces-deep-crimson-accents-subtle-glow-highlight-treatments-and-elegant-serif-headline-typography-paired-with-a-readable-sans-serif-for-body-text-apply-consistently-across-all-sections",
+      "title": "Establish and apply a coherent visual theme consistent with the uploaded design: dark charcoal/black surfaces, deep crimson accents, subtle glow/highlight treatments, and elegant serif headline typography paired with a readable sans-serif for body text. Apply consistently across all sections.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-a-simple-pricing-section-and-contact-section-as-linked-from-the-nav-that-match-the-site-theme-and-provide-complete-polished-content-placeholders-in-english",
+      "title": "Add a simple Pricing section and Contact section (as linked from the nav) that match the site theme and provide complete, polished content placeholders in English.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-add-generated-static-image-assets-to-the-project-under-frontend-public-assets-generated-and-render-them-in-the-hero-and-gallery-sections",
+      "title": "Add generated static image assets to the project under frontend/public/assets/generated and render them in the hero and gallery sections.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Build a full website matching the uploaded design image (layout/styling replication).",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Use static placeholder images for the gallery/people photos instead of reusing exact images from the design.",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Include a non-functional/mock \"Generate\" button (no real image generation).",
+      "reqIds": [],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "AIGen Studio",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

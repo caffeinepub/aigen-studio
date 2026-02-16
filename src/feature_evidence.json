@@ -1,0 +1,162 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-create-a-responsive-single-page-website-that-closely-replicates-the-layout-typography-and-visual-styling-of-the-uploaded-design-image-grok-image-xg2a6g3-jpg-including-top-navigation-bar-hero-section-with-large-title-prompt-input-section-with-a-generate-button-and-a-gallery-grid-section",
+      "featureTitle": "Create a responsive single-page website that closely replicates the layout, typography, and visual styling of the uploaded design image (grok_image_xg2a6g3.jpg), including: top navigation bar, hero section with large title, prompt input section with a Generate button, and a Gallery grid section.",
+      "files": [
+        "frontend/index.html",
+        "frontend/src/App.tsx",
+        "frontend/src/main.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-1"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-implement-the-top-navigation-ui-from-the-design-with-links-home-gallery-pricing-contact-and-decorative-icons-if-present-and-provide-smooth-scroll-behavior-to-corresponding-page-sections",
+      "featureTitle": "Implement the top navigation UI from the design with links: Home, Gallery, Pricing, Contact (and decorative icons if present), and provide smooth-scroll behavior to corresponding page sections.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/TopNav.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-2"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-build-the-prompt-input-section-enter-your-description-here-with-a-text-input-and-a-mock-non-ai-generate-button-when-clicked-show-a-brief-loading-state-and-then-add-a-new-placeholder-image-card-to-the-gallery-using-a-pre-generated-static-asset-no-external-ai-apis",
+      "featureTitle": "Build the prompt input section (\"Enter your description here...\") with a text input and a mock/non-AI \"Generate\" button. When clicked, show a brief loading state and then add a new placeholder image card to the gallery using a pre-generated static asset (no external AI APIs).",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/PromptGenerator.tsx",
+        "frontend/src/components/useMockGeneration.ts"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-3"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-create-a-gallery-section-that-visually-matches-the-design-a-section-title-an-optional-style-filter-dropdown-e-g-dramatic-and-a-grid-of-image-cards-with-consistent-aspect-ratio-rounded-corners-and-hover-focus-styling",
+      "featureTitle": "Create a Gallery section that visually matches the design: a section title, an optional style/filter dropdown (e.g., \"Dramatic\"), and a grid of image cards with consistent aspect ratio, rounded corners, and hover/focus styling.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/GallerySection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-4"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-replace-any-photos-of-real-people-from-the-uploaded-design-with-neutral-non-person-placeholder-imagery-e-g-abstract-ai-themed-art-futuristic-textures-landscapes-while-keeping-the-same-layout-composition",
+      "featureTitle": "Replace any photos of real people from the uploaded design with neutral, non-person placeholder imagery (e.g., abstract AI-themed art, futuristic textures, landscapes) while keeping the same layout composition.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/GallerySection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-5"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-establish-and-apply-a-coherent-visual-theme-consistent-with-the-uploaded-design-dark-charcoal-black-surfaces-deep-crimson-accents-subtle-glow-highlight-treatments-and-elegant-serif-headline-typography-paired-with-a-readable-sans-serif-for-body-text-apply-consistently-across-all-sections",
+      "featureTitle": "Establish and apply a coherent visual theme consistent with the uploaded design: dark charcoal/black surfaces, deep crimson accents, subtle glow/highlight treatments, and elegant serif headline typography paired with a readable sans-serif for body text. Apply consistently across all sections.",
+      "files": [
+        "frontend/src/components/GallerySection.tsx",
+        "frontend/src/components/PromptGenerator.tsx",
+        "frontend/src/components/TopNav.tsx",
+        "frontend/src/index.css",
+        "frontend/tailwind.config.js"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-6"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-a-simple-pricing-section-and-contact-section-as-linked-from-the-nav-that-match-the-site-theme-and-provide-complete-polished-content-placeholders-in-english",
+      "featureTitle": "Add a simple Pricing section and Contact section (as linked from the nav) that match the site theme and provide complete, polished content placeholders in English.",
+      "files": [
+        "frontend/src/App.tsx",
+        "frontend/src/components/ContactSection.tsx",
+        "frontend/src/components/PricingSection.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-7"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-add-generated-static-image-assets-to-the-project-under-frontend-public-assets-generated-and-render-them-in-the-hero-and-gallery-sections",
+      "featureTitle": "Add generated static image assets to the project under frontend/public/assets/generated and render them in the hero and gallery sections.",
+      "files": [
+        "frontend/src/App.tsx"
+      ],
+      "components": [
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-8"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

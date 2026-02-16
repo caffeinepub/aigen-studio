@@ -1,0 +1,23 @@
+{
+  "backend/main.mo": "Empty Motoko actor placeholder.",
+  "feature_evidence.json": "Lists feature reports mapping features to involved files, components, and test IDs.",
+  "frontend-file-summaries.txt": "Provides short descriptions of all frontend files and components.",
+  "frontend/index.css": "Global Tailwind-based styles defining color tokens, theming variables, and base styling.",
+  "frontend/index.html": "HTML entry point loading fonts and mounting the React app.",
+  "frontend/src/App.tsx": "Main React component managing gallery state and rendering all page sections.",
+  "frontend/src/components/ContactSection.tsx": "Contact form with validation, submission state, and success message display.",
+  "frontend/src/components/Footer.tsx": "Footer showing copyright, attribution link, and dynamic year.",
+  "frontend/src/components/GallerySection.tsx": "Gallery grid with filter dropdown and hover effects showing provided gallery items.",
+  "frontend/src/components/HeroSection.tsx": "Hero section with background image, large AI monogram, title, and scroll indicator.",
+  "frontend/src/components/PricingSection.tsx": "Renders a pricing section with three tiered plan cards, including features and styling for a highlighted plan.",
+  "frontend/src/components/PromptGenerator.tsx": "Provides a text input and button to generate mock AI images, handling errors, loading state, and user submissions.",
+  "frontend/src/components/TopNav.tsx": "Implements a responsive top navigation bar with smooth-scrolling links and a mobile menu toggle.",
+  "frontend/src/components/useMockGeneration.ts": "Simulates AI image generation with a delay and returns a mock gallery item using random placeholder images.",
+  "frontend/src/hooks/useActor.ts": "Creates and manages a backend actor based on the current Internet Identity, invalidating queries when the identity changes.",
+  "frontend/src/hooks/useInternetIdentity.ts": "Provides Internet Identity authentication context, handling login, stored identity loading, and state management.",
+  "frontend/src/hooks/useQueries.ts": "Placeholder file reserved for future backend-related React Query hooks.",
+  "frontend/src/index.css": "Defines Tailwind base styles, custom color tokens, themes, and utility classes including glow effects.",
+  "frontend/src/main.tsx": "Initializes the React app, wrapping it with React Query and Internet Identity providers.",
+  "frontend/tailwind.config.js": "Tailwind CSS config extending theme colors, fonts, radii, shadows, and animations, and enabling plugins for typography, container queries, and animations.",
+  "project_state.json": "JSON project state describing the website plan, required images, features, and architectural notes for a static front‑end build."
+}

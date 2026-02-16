@@ -1,0 +1,239 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "AIGen Studio — Single-page landing (mock generate + static gallery)",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "summary": "Implement a responsive single-page landing layout matching the uploaded design (nav, hero, prompt/generate, gallery).",
+      "acceptanceCriteria": [
+        "Page structure matches the uploaded design at a high level (nav + hero + prompt/generate section + gallery).",
+        "Typography, spacing, and overall look-and-feel are visually consistent with the uploaded design (dark cinematic card, subtle glow, elegant headline).",
+        "Layout is responsive (mobile/tablet/desktop) with no horizontal overflow."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "create",
+          "description": "Create the single-page layout (Nav, Hero, Prompt/Generate, Gallery, plus lower sections from other requirements) using responsive Tailwind classes and section anchors to closely replicate grok_image_xg2a6g3.jpg styling; ensure no horizontal overflow and match the dark cinematic card/glow composition."
+        },
+        {
+          "path": "frontend/index.html",
+          "operation": "modify",
+          "description": "Ensure document metadata supports the single-page landing experience (title already set) and prepare for any font loading strategy used by the theme (keep user-facing text in English)."
+        },
+        {
+          "path": "frontend/src/main.tsx",
+          "operation": "modify",
+          "description": "Confirm App is mounted as a single-page experience and preserve existing providers while ensuring the new landing renders correctly."
+        }
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "summary": "Build top navigation with Home/Gallery/Pricing/Contact links and smooth-scroll to sections with responsive behavior.",
+      "acceptanceCriteria": [
+        "Clicking Home/Gallery/Pricing/Contact scrolls to the correct section.",
+        "Active/hover states are styled coherently with the overall theme.",
+        "On small screens, navigation remains usable (e.g., collapses into a menu or wraps cleanly)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/TopNav.tsx",
+          "operation": "create",
+          "description": "Implement the top navigation UI (Home/Gallery/Pricing/Contact) with theme-consistent hover/active styles and responsive small-screen behavior; include smooth-scroll behavior to section IDs. If using shadcn-ui components (e.g., navigation menu/button), verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire TopNav into the page and define section containers with stable IDs for smooth-scroll targets (Home, Gallery, Pricing, Contact)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "summary": "Add prompt input with mock Generate action that shows loading then appends a new placeholder image card from local assets.",
+      "acceptanceCriteria": [
+        "Generate button does not call any external AI service.",
+        "Clicking Generate shows a visible loading state for ~0.5–1.5s and then updates the UI (e.g., adds a new gallery item).",
+        "If the prompt is empty, the UI prevents generation or displays a clear inline validation message."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PromptGenerator.tsx",
+          "operation": "create",
+          "description": "Create the prompt input section with a text input, inline validation, and a mock Generate button that shows a loading state (0.5–1.5s) and then adds a new item to the gallery using an existing local generated asset; no external API calls. If using shadcn-ui Input/Button, verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/useMockGeneration.ts",
+          "operation": "create",
+          "description": "Add a small hook/util to manage mock generation state (loading, validation, and producing a new gallery item referencing local assets) without any network calls."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire PromptGenerator into the layout and connect its output to the gallery state so a newly generated item appears in the Gallery grid."
+        }
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "summary": "Implement Gallery section with title, optional client-side style/filter dropdown, and accessible image card grid with consistent aspect ratio and hover/focus states.",
+      "acceptanceCriteria": [
+        "Gallery displays at least 6 static placeholder images in a grid similar to the design.",
+        "Cards are keyboard-focusable and have accessible alt text.",
+        "Dropdown (if included) updates gallery ordering or filtering on the client side without backend calls."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/GallerySection.tsx",
+          "operation": "create",
+          "description": "Build the Gallery section with a title, a client-side style/filter dropdown (e.g., Dramatic), and a responsive grid of focusable image cards with consistent aspect ratio, rounded corners, and hover/focus styling; provide meaningful alt text and avoid backend calls. If using shadcn-ui Select/Card, verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire GallerySection into the single-page layout, provide initial gallery items (at least 6) referencing the required local generated images, and pass any generated items appended by the mock generator."
+        }
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "summary": "Ensure no real-person photos are used; replace with neutral non-person imagery while preserving layout composition.",
+      "acceptanceCriteria": [
+        "No real-person photos from the uploaded image are reused in the site assets.",
+        "Hero and gallery imagery use neutral non-person visuals that preserve the intended composition."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Ensure hero and gallery imagery references only the neutral non-person generated assets under frontend/public/assets/generated and does not reuse any real-person photos from grok_image_xg2a6g3.jpg."
+        },
+        {
+          "path": "frontend/src/components/GallerySection.tsx",
+          "operation": "modify",
+          "description": "Ensure gallery items and alt text describe neutral abstract/landscape AI-themed visuals (no references to real persons), and keep the intended card composition."
+        }
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "summary": "Establish and apply the dark cinematic theme (charcoal surfaces, crimson accents, subtle glow, serif headline + sans body) consistently across the page.",
+      "acceptanceCriteria": [
+        "Colors, gradients, and glow effects are consistent across nav/hero/prompt/gallery.",
+        "Headings use a consistent display type style; body text remains readable with sufficient contrast.",
+        "Buttons/inputs match the theme (rounded corners, subtle border/glow, consistent focus ring)."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/index.css",
+          "operation": "create",
+          "description": "Add global Tailwind base layers and theme tokens (CSS variables) to achieve dark charcoal surfaces, deep crimson accents, subtle glows, and consistent focus rings; ensure readable contrast and consistent typography across sections."
+        },
+        {
+          "path": "frontend/tailwind.config.js",
+          "operation": "modify",
+          "description": "Extend Tailwind theme for the design language (e.g., font families for elegant serif headlines + sans body, and any additional utility defaults needed for glow/gradients) while keeping the existing CSS-variable color system."
+        },
+        {
+          "path": "frontend/src/components/TopNav.tsx",
+          "operation": "modify",
+          "description": "Apply the finalized theme styling to navigation (dark surfaces, crimson highlight, subtle glow, consistent typography)."
+        },
+        {
+          "path": "frontend/src/components/PromptGenerator.tsx",
+          "operation": "modify",
+          "description": "Apply the finalized theme styling to input/button (rounded corners, subtle border/glow, consistent focus ring and disabled/loading states)."
+        },
+        {
+          "path": "frontend/src/components/GallerySection.tsx",
+          "operation": "modify",
+          "description": "Apply the finalized theme styling to gallery cards and dropdown (consistent borders, glow, hover/focus treatment)."
+        }
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "summary": "Add themed Pricing and Contact sections with English placeholder content and client-side contact form validation + local success message.",
+      "acceptanceCriteria": [
+        "Pricing section contains at least 2–3 plan cards with names, prices, and bullet features (placeholder text is acceptable).",
+        "Contact section contains a styled contact form (name/email/message) that validates inputs client-side and shows a local success message on submit (no email integration).",
+        "Both sections are reachable via nav smooth-scroll and maintain consistent styling."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/components/PricingSection.tsx",
+          "operation": "create",
+          "description": "Create a Pricing section with 2–3 themed plan cards (English content placeholders) consistent with the dark/crimson cinematic styling. If using shadcn-ui Card/Button, verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/components/ContactSection.tsx",
+          "operation": "create",
+          "description": "Create a Contact section with a styled form (name/email/message), client-side validation, and a local success message on submit; no email integration or backend calls. If using shadcn-ui Input/Textarea/Button, verify the component's usage instructions before implementing."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Wire PricingSection and ContactSection into the single-page layout with stable IDs matching the nav smooth-scroll targets and ensure consistent theme styling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "summary": "Add required generated static image assets under frontend/public/assets/generated and render them in hero and gallery.",
+      "acceptanceCriteria": [
+        "All required generated images exist at frontend/public/assets/generated with the specified filenames.",
+        "Hero and gallery render these local assets directly (no backend image routing).",
+        "Site builds without broken image links."
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/public/assets/generated/bg-hero.dim_1600x2400.png",
+          "operation": "create",
+          "description": "Add the generated hero background image asset (dark cinematic abstract background with subtle crimson glow haze) at the exact path frontend/public/assets/generated/bg-hero.dim_1600x2400.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/panel-texture.dim_1600x900.png",
+          "operation": "create",
+          "description": "Add the generated panel texture asset at the exact path frontend/public/assets/generated/panel-texture.dim_1600x900.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/gallery-01.dim_900x1200.png",
+          "operation": "create",
+          "description": "Add generated neutral non-person gallery image at frontend/public/assets/generated/gallery-01.dim_900x1200.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/gallery-02.dim_900x1200.png",
+          "operation": "create",
+          "description": "Add generated neutral non-person gallery image at frontend/public/assets/generated/gallery-02.dim_900x1200.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/gallery-03.dim_900x1200.png",
+          "operation": "create",
+          "description": "Add generated neutral non-person gallery image at frontend/public/assets/generated/gallery-03.dim_900x1200.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/gallery-04.dim_900x1200.png",
+          "operation": "create",
+          "description": "Add generated neutral non-person gallery image at frontend/public/assets/generated/gallery-04.dim_900x1200.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/gallery-05.dim_900x1200.png",
+          "operation": "create",
+          "description": "Add generated neutral non-person gallery image at frontend/public/assets/generated/gallery-05.dim_900x1200.png."
+        },
+        {
+          "path": "frontend/public/assets/generated/gallery-06.dim_900x1200.png",
+          "operation": "create",
+          "description": "Add generated neutral non-person gallery image at frontend/public/assets/generated/gallery-06.dim_900x1200.png."
+        },
+        {
+          "path": "frontend/src/App.tsx",
+          "operation": "modify",
+          "description": "Reference the local generated assets (frontend/public/assets/generated/bg-hero.dim_1600x2400.png, frontend/public/assets/generated/panel-texture.dim_1600x900.png, and gallery-01..06.dim_900x1200.png) in the hero and gallery UI to ensure no broken links and no backend image routing."
+        }
+      ]
+    }
+  ]
+}

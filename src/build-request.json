@@ -1,0 +1,189 @@
+{
+  "kind": "build_request",
+  "title": "Build landing page matching uploaded AI Image Generator design (mock generate + static gallery)",
+  "projectName": "AIGen Studio",
+  "priority": "normal",
+  "requirements": [
+    {
+      "id": "REQ-1",
+      "text": "Create a responsive single-page website that closely replicates the layout, typography, and visual styling of the uploaded design image (grok_image_xg2a6g3.jpg), including: top navigation bar, hero section with large title, prompt input section with a Generate button, and a Gallery grid section.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website according to image I uploaded",
+          "Yes start making website"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Page structure matches the uploaded design at a high level (nav + hero + prompt/generate section + gallery).",
+        "Typography, spacing, and overall look-and-feel are visually consistent with the uploaded design (dark cinematic card, subtle glow, elegant headline).",
+        "Layout is responsive (mobile/tablet/desktop) with no horizontal overflow."
+      ]
+    },
+    {
+      "id": "REQ-2",
+      "text": "Implement the top navigation UI from the design with links: Home, Gallery, Pricing, Contact (and decorative icons if present), and provide smooth-scroll behavior to corresponding page sections.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Make whole website with this image all future's settings working"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Clicking Home/Gallery/Pricing/Contact scrolls to the correct section.",
+        "Active/hover states are styled coherently with the overall theme.",
+        "On small screens, navigation remains usable (e.g., collapses into a menu or wraps cleanly)."
+      ]
+    },
+    {
+      "id": "REQ-3",
+      "text": "Build the prompt input section (\"Enter your description here...\") with a text input and a mock/non-AI \"Generate\" button. When clicked, show a brief loading state and then add a new placeholder image card to the gallery using a pre-generated static asset (no external AI APIs).",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "I'll start building your website now based on the uploaded design, using static placeholder images and a non-functional Generate button."
+        ]
+      },
+      "acceptanceCriteria": [
+        "Generate button does not call any external AI service.",
+        "Clicking Generate shows a visible loading state for ~0.5–1.5s and then updates the UI (e.g., adds a new gallery item).",
+        "If the prompt is empty, the UI prevents generation or displays a clear inline validation message."
+      ]
+    },
+    {
+      "id": "REQ-4",
+      "text": "Create a Gallery section that visually matches the design: a section title, an optional style/filter dropdown (e.g., \"Dramatic\"), and a grid of image cards with consistent aspect ratio, rounded corners, and hover/focus styling.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Make whole website with this image all future's settings working"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Gallery displays at least 6 static placeholder images in a grid similar to the design.",
+        "Cards are keyboard-focusable and have accessible alt text.",
+        "Dropdown (if included) updates gallery ordering or filtering on the client side without backend calls."
+      ]
+    },
+    {
+      "id": "REQ-5",
+      "text": "Replace any photos of real people from the uploaded design with neutral, non-person placeholder imagery (e.g., abstract AI-themed art, futuristic textures, landscapes) while keeping the same layout composition.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "will use static placeholder images and a non-functional (mock) \"Generate\" button."
+        ]
+      },
+      "acceptanceCriteria": [
+        "No real-person photos from the uploaded image are reused in the site assets.",
+        "Hero and gallery imagery use neutral non-person visuals that preserve the intended composition."
+      ]
+    },
+    {
+      "id": "REQ-6",
+      "text": "Establish and apply a coherent visual theme consistent with the uploaded design: dark charcoal/black surfaces, deep crimson accents, subtle glow/highlight treatments, and elegant serif headline typography paired with a readable sans-serif for body text. Apply consistently across all sections.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Create website according to image I uploaded"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Colors, gradients, and glow effects are consistent across nav/hero/prompt/gallery.",
+        "Headings use a consistent display type style; body text remains readable with sufficient contrast.",
+        "Buttons/inputs match the theme (rounded corners, subtle border/glow, consistent focus ring)."
+      ]
+    },
+    {
+      "id": "REQ-7",
+      "text": "Add a simple Pricing section and Contact section (as linked from the nav) that match the site theme and provide complete, polished content placeholders in English.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Make whole website with this image all future's settings working"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Pricing section contains at least 2–3 plan cards with names, prices, and bullet features (placeholder text is acceptable).",
+        "Contact section contains a styled contact form (name/email/message) that validates inputs client-side and shows a local success message on submit (no email integration).",
+        "Both sections are reachable via nav smooth-scroll and maintain consistent styling."
+      ]
+    },
+    {
+      "id": "REQ-8",
+      "text": "Add generated static image assets to the project under frontend/public/assets/generated and render them in the hero and gallery sections.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "Use static placeholder images for the gallery/people photos instead of reusing exact images from the design."
+        ]
+      },
+      "acceptanceCriteria": [
+        "All required generated images exist at frontend/public/assets/generated with the specified filenames.",
+        "Hero and gallery render these local assets directly (no backend image routing).",
+        "Site builds without broken image links."
+      ]
+    }
+  ],
+  "constraints": [
+    "Do not use any external AI image generation APIs; the Generate action must be mock/placeholder only.",
+    "Do not reuse real-person photos from the uploaded design; use neutral non-person placeholder imagery instead.",
+    "Do not edit files under frontend/src/components/ui or other immutable paths listed in SYSTEM_CONTEXT; compose them as-is if needed.",
+    "Backend must remain a single Motoko actor; do not introduce additional backend services."
+  ],
+  "nonGoals": [
+    "Implementing real AI image generation.",
+    "User accounts beyond any default template/auth (no custom auth requirements requested).",
+    "Image upload by end users.",
+    "Real payments processing for pricing plans."
+  ],
+  "imageRequirements": {
+    "required": [
+      "Dark cinematic abstract background with deep charcoal base and subtle crimson glow haze (bg-hero.dim_1600x2400.png)",
+      "Abstract futuristic panel texture with soft vignette and faint circuit-like patterns (panel-texture.dim_1600x900.png)",
+      "Six neutral non-person gallery images: moody cinematic AI-themed abstracts/landscapes, each with low-key lighting and warm highlights (gallery-01.dim_900x1200.png)",
+      "Six neutral non-person gallery images: moody cinematic AI-themed abstracts/landscapes, each with low-key lighting and warm highlights (gallery-02.dim_900x1200.png)",
+      "Six neutral non-person gallery images: moody cinematic AI-themed abstracts/landscapes, each with low-key lighting and warm highlights (gallery-03.dim_900x1200.png)",
+      "Six neutral non-person gallery images: moody cinematic AI-themed abstracts/landscapes, each with low-key lighting and warm highlights (gallery-04.dim_900x1200.png)",
+      "Six neutral non-person gallery images: moody cinematic AI-themed abstracts/landscapes, each with low-key lighting and warm highlights (gallery-05.dim_900x1200.png)",
+      "Six neutral non-person gallery images: moody cinematic AI-themed abstracts/landscapes, each with low-key lighting and warm highlights (gallery-06.dim_900x1200.png)"
+    ],
+    "edits": []
+  },
+  "userProfileUpdate": {
+    "goalsToAdd": [],
+    "goalsToRemove": [],
+    "preferencesToAdd": [
+      "User-facing text must be in English."
+    ],
+    "preferencesToRemove": [],
+    "miscToAdd": [],
+    "miscToRemove": [],
+    "fieldsToSet": {},
+    "fieldsToDelete": []
+  }
+}
